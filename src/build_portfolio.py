@@ -2,6 +2,10 @@
 This renders the webpage which allows the user to build their own portfolio
 """
 import streamlit as st
+from binance import Client
+
+client = Client()
+fiat = 'USDT'
 
 def app():
     st.title('Build your Portfolio')
@@ -15,14 +19,10 @@ def app():
     # Set the message informing the user of the chosen portfolio's weightings
     update_weightings_msg(st.session_state.weightings)
 
-    coin_list = (
-        'BTC',
-        'ETH',
-        'SOL',
-        'AVAX',
-        'FTM',
-        'VET',
-    )
+    if 'coin_list' not in st.session_state:
+        st.session_state.coin_list = get_coin_list()
+    coin_list = st.session_state.coin_list
+
     # If no assets are chosen, set chosen_assets to None
     chosen_assets = st.session_state.weightings.keys()
     if not chosen_assets:
@@ -62,6 +62,18 @@ def update_weightings_msg(weightings):
     Callback function to update the message informing the user of the chosen portfolio's weightings
     """
     st.session_state.weightings_info = f"Your portfolio's part-to-part ratio is: {weightings}"
+
+
+def get_coin_list():
+    exchange_info = client.get_exchange_info()
+    # get coins paired with USDT
+    symbols = (s for s in exchange_info['symbols'] if s['symbol'].endswith(fiat))
+    # Ensure no duplicates by using sets
+    coin_set = {s['baseAsset'] for s in symbols} | {s['quoteAsset'] for s in symbols}
+    coin_set.discard(fiat)
+    coin_list = sorted(coin_set)
+
+    return coin_list
 
 
 if __name__ == '__main__':
