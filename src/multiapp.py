@@ -41,10 +41,12 @@ class MultiApp:
         })
 
     def run(self):
-        app = st.sidebar.radio(
-        # app = st.selectbox(
-            'Navigation',
-            self.apps,
-            format_func=lambda app: app['title'])
-
-        app['function']()
+        titles = [a["title"] for a in self.apps]
+        functions = [a["function"] for a in self.apps]
+        if 'page' not in st.session_state:
+            default_radio = 0
+        else:
+            default_radio = titles.index(st.session_state.page)
+        st.sidebar.title("Navigation")
+        title = st.sidebar.radio("Go To", titles, index=default_radio, key="radio")
+        functions[titles.index(title)]()
