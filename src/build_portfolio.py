@@ -1,7 +1,9 @@
 """
 This renders the webpage which allows the user to build their own portfolio
 """
+from functools import reduce
 import streamlit as st
+import pandas as pd
 from binance import Client
 
 client = Client()
@@ -49,8 +51,7 @@ def app():
     # Create button that updates the weightings information message
     st.button(
         'Build Portfolio',
-        on_click=update_weightings_msg,
-        args=(st.session_state.weightings,)
+        on_click=cb_build_portfolio,
     )
 
     # Write the weightings information message
@@ -74,6 +75,73 @@ def get_coin_list():
     coin_list = sorted(coin_set)
 
     return coin_list
+
+
+def cb_build_portfolio():
+    """
+    Download and cache the data needed for the portfolio
+    """
+    weightings = st.session_state.weightings
+    update_weightings_msg(weightings)
+
+    if not weightings: return
+
+    asset_list = weightings.keys()
+    if 'df_cached' not in st.session_state:
+        df_cached = st.session_state.df_cached = reduce(
+            lambda left, right: pd.merge(
+                left,
+                right,
+                left_index=True,
+                right_index=True,
+                how='outer'),
+            map(get_historical_data, asset_list)
+        )
+    else:
+        df_cached = st.session_state.df_cached
+        coins_cached = df_cached.columns.get_level_values(level=0).unique()
+        coins_uncached = set(asset_list) - set(coins_cached)
+        if coins_uncached:
+            df_uncached = reduce(
+                lambda left, right: pd.merge(
+                    left,
+                    right,
+                    left_index=True,
+                    right_index=True,
+                    how='outer'),
+                map(get_historical_data, tuple(coins_uncached))
+            )
+            df_cached = st.session_state.df_cached = pd.merge(
+                df_cached,
+                df_uncached,
+                left_index=True,
+                right_index=True,
+                how='outer'
+            )
+
+    # Global dataframes
+    df_ohlcv = df_cached[asset_list]
+    st.session_state.df_ohlcv = df_ohlcv
+    df_close = df_ohlcv[pd.MultiIndex.from_product([asset_list, ['close']])].droplevel(1, axis=1)
+    st.session_state.df_close = df_close
+    st.session_state.df_daily_returns = df_close.pct_change().dropna()
+
+
+def get_historical_data(currency):
+    klines = client.get_historical_klines(
+        currency + fiat,
+        Client.KLINE_INTERVAL_1DAY,
+        "1 year ago UTC"
+    )
+    # klines columns=['Open Time', 'Open', 'High', 'Low', 'Close', 'Volume', 'Close Time', 'Quote asset volume', 'Number of trades', 'Taker buy base asset volume', 'Taker buy quote asset volume', 'Ignore'])
+    cols_ohlcv = ('open', 'high', 'low', 'close', 'volume')
+    df = pd.DataFrame((x[:6] for x in klines), columns=['timestamp', *cols_ohlcv])
+    df[[*cols_ohlcv]] = df[[*cols_ohlcv]].astype(float)
+    df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
+    df.set_index('timestamp', inplace=True)
+    df.columns = pd.MultiIndex.from_product([[currency], cols_ohlcv])
+
+    return df
 
 
 if __name__ == '__main__':
