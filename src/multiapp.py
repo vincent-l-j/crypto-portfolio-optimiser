@@ -24,7 +24,7 @@ class MultiApp:
         app.run()
     """
     def __init__(self):
-        self.apps = []
+        self.apps = dict()
 
     def add_app(self, title, func):
         """Adds a new application.
@@ -35,18 +35,14 @@ class MultiApp:
         title:
             title of the app. Appears in the dropdown in the sidebar.
         """
-        self.apps.append({
-            "title": title,
-            "function": func
-        })
+        self.apps[title] = func
 
     def run(self):
-        titles = [a["title"] for a in self.apps]
-        functions = [a["function"] for a in self.apps]
+        titles = self.apps.keys()
         if 'page' not in st.session_state:
             default_radio = 0
         else:
             default_radio = titles.index(st.session_state.page)
         st.sidebar.title("Navigation")
         title = st.sidebar.radio("Go To", titles, index=default_radio, key="radio")
-        functions[titles.index(title)]()
+        self.apps[title]()
