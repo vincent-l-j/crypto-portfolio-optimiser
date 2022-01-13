@@ -8,6 +8,7 @@ from src import (
     build_portfolio,
     historical_performance,
     portfolio_forecasting,
+    beta_correlation,
     summary,
 )
 
@@ -18,6 +19,7 @@ app.add_app("Home", home.app)
 app.add_app("Build Your Portfolio", build_portfolio.app)
 app.add_app("Historical Performance", historical_performance.app)
 app.add_app("Portfolio Forecasting", portfolio_forecasting.app)
+app.add_app("Beta & Correlation", beta_correlation.app)
 app.add_app("Summary", summary.app)
 # The main app
 app.run()
