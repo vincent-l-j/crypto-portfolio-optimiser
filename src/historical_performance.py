@@ -4,6 +4,11 @@ import pandas as pd
 
 def app():
     st.title('Historical Performance')
+    try:
+        df_daily_returns = st.session_state.df_daily_returns
+    except AttributeError:
+        st.write('Please build your portfolio first.')
+        return
     df_daily_returns = st.session_state.df_daily_returns
     df_daily_returns_plt = df_daily_returns.hvplot(figsize=(25,10), xlabel="Year", ylabel="Percentage change", title="Daily Returns over 1 Year")
     cumulative_returns = (1 + df_daily_returns).cumprod() - 1
