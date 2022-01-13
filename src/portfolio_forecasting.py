@@ -4,6 +4,7 @@ import hvplot.pandas
 import holoviews as hv
 import matplotlib.pyplot as plt
 from .MCForecastTools import MCSimulation
+import numpy as np
 
 def app():
     st.title('Portfolio Forecasting')
@@ -13,10 +14,11 @@ def app():
     except AttributeError:
         st.write('Please build your portfolio first.')
         return
-    
+
+    v = list(st.session_state.weightings.values())
     MC_traditional_dist = MCSimulation(
         portfolio_data = st.session_state.df_ohlcv,
-        weights = [.60,.20,.20],
+        weights = v/np.linalg.norm(v),
         num_simulation = 100,
         num_trading_days = 365*1
     )
