@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import hvplot.pandas
+import holoviews as hv
 import matplotlib.pyplot as plt
 from .MCForecastTools import MCSimulation
 
@@ -22,7 +23,7 @@ def app():
 
     MC_traditional_dist.calc_cumulative_return()
 
-    st.pyplot(mc_line_plot(MC_traditional_dist))
+    st.bokeh_chart(hv.render(mc_line_plot(MC_traditional_dist), backend='bokeh'))
     st.pyplot(mc_dist_plot(MC_traditional_dist))
     st.write(investment_return(MC_traditional_dist))
 

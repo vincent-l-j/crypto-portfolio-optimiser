@@ -1,6 +1,7 @@
 # Import libraries and dependencies
 import numpy as np
 import pandas as pd
+import hvplot.pandas
 
 class MCSimulation:
     """
@@ -132,7 +133,7 @@ class MCSimulation:
             
         # Use Pandas plot function to plot the return data
         plot_title = f"{self.nSim} Simulations of Cumulative Portfolio Return Trajectories Over the Next {self.nTrading} Trading Days."
-        return self.simulated_return.plot(legend=None,title=plot_title)
+        return self.simulated_return.hvplot(legend=None,title=plot_title)
     
     def plot_distribution(self):
         """
@@ -150,7 +151,7 @@ class MCSimulation:
         plt = self.simulated_return.iloc[-1, :].plot(kind='hist', bins=10,density=True,title=plot_title)
         plt.axvline(self.confidence_interval.iloc[0], color='r')
         plt.axvline(self.confidence_interval.iloc[1], color='r')
-        return plt
+        return plt.get_figure()
     
     def summarize_cumulative_return(self):
         """
