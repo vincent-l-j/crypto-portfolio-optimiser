@@ -1,4 +1,5 @@
 import streamlit as st
+import hvplot.pandas
 import holoviews as hv
 import pandas as pd
 
