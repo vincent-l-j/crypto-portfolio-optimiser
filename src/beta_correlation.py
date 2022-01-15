@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import holoviews as hv 
+import holoviews as hv
+import numpy as np
 
 #Beta and Correlation Portfolio App
 def app():
@@ -8,7 +9,8 @@ def app():
 
     df_change = st.session_state.df_daily_returns
 
-    weights = [6/10, 2/10, 2/10]
+    v = list(st.session_state.weightings.values())
+    weights = v/np.linalg.norm(v)
     portfolio_return = weights * df_change
     portfolio_sum = portfolio_return.sum(axis=1)
 
