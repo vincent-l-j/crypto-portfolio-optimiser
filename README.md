@@ -16,6 +16,8 @@ streamlit run app.py
 
 This should include a heading for each question that was asked of your data, with a short description of what you found and any relevant plots under each heading.
 
+The following analysis was performed using a chosen portfolio of [`BTC`, `ETH`, `SOL`] with weightings of [60, 20, 20] respectively.
+
 ### How has your portfolio performed in the past year?
 
 ### How has your portfolio performed cumulatively in the past year?
@@ -24,17 +26,17 @@ This should include a heading for each question that was asked of your data, wit
 
 ### How volatile is your portfolio?
 
-### How will your portfolio perform in one year?
+### How might your portfolio perform in one year?
 
-### What is the most likely range of your returns?
+### What is the most probable expected portfolio return in one year?
 
 ### Is the portfolio performing adequately?
 
-### What weighting is optimal for minimum volatility?
+### Find the portfolio with the minimum volatility
 
-### What weighting is optimal for maximum sharpe ratio?
+### Find the portfolio with the maximum Sharpe Ratio, also called the tangency portfolio
 
-### How to find the portfolio with the maximum Sharpe Ratio for a given target Volatility
+### Given a target volatility of 0.85, find the portfolio with the maximum Sharpe Ratio
 
-### How to find the portfolio with the minimum volatility for a given target return?
+### Given an expected return of 1.5, find the portfolio with the minimum volatility
 
