@@ -12,6 +12,9 @@ conda activate <your-env-name>
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+---
+
 ## Summary of Findings
 
 This should include a heading for each question that was asked of your data, with a short description of what you found and any relevant plots under each heading.
