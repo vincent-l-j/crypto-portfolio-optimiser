@@ -16,21 +16,21 @@ streamlit run app.py
 
 This should include a heading for each question that was asked of your data, with a short description of what you found and any relevant plots under each heading.
 
-### How has your portoflio performed in the past year?
+### How has your portfolio performed in the past year?
 
 ### How has your portfolio performed cumulatively in the past year?
 
-### How storngly correlated is your portfolio to BTC?
+### How strongly correlated is your portfolio to BTC?
 
-### How volitile is your portfolio?
+### How volatile is your portfolio?
 
-### How will you portoflio perform in one year?
+### How will your portfolio perform in one year?
 
 ### What is the most likely range of your returns?
 
-### Is the portfolio performing adequetely?
+### Is the portfolio performing adequately?
 
-### What weighting is optimal for minimum volitility
+### What weighting is optimal for minimum volatility?
 
 ### What weighting is optimal for maximum sharpe ratio?
 
