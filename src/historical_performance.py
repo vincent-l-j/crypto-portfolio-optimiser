@@ -6,8 +6,11 @@ import pandas as pd
 def app():
     st.title('Historical Performance')
     try:
+        weightings = st.session_state.weightings
         df_daily_returns = st.session_state.df_daily_returns
     except AttributeError:
+        weightings = None
+    if not weightings:
         st.write('Please build your portfolio first.')
         return
     df_daily_returns = st.session_state.df_daily_returns

@@ -11,6 +11,8 @@ def app():
         weightings = st.session_state.weightings
         df_close = st.session_state.df_close
     except AttributeError:
+        weightings = None
+    if not weightings:
         st.write('Please build your portfolio first.')
         return
     d = {
