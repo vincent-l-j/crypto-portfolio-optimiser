@@ -45,22 +45,47 @@ The following analysis was performed using a chosen portfolio of [`BTC`, `ETH`, 
 
 ![dis monte carlo](images/dis_monte_carlo.png)
 
-### Is the portfolio performing adequately?
+### Calculate the efficient frontier
+The efficient frontier is the set of optimal portfolios that offer the highest expected return for a defined level of risk or the lowest risk for a given level of expected return. Portfolios that lie below the efficient frontier are sub-optimal because they do not provide enough return for the level of risk.
 
-![frontier](https://github.com/vincent-l-j/project-1/blob/main/images/efficient_frontier.png)
+![efficient_frontier](images/efficient_frontier.png)
 
 ### Find the portfolio with the minimum volatility
+The efficient portfolio weightings with the maximum Sharpe Ratio:
+| Asset | Weighting (%) |
+|-------|---------------|
+| BTC   | 95.2          |
+| SOL   | 3.25          |
+| ETH   | 1.56          |
 
-![min vol](https://github.com/vincent-l-j/project-1/blob/main/images/min_vol_weight.png)
+![min_volatility](images/min_vol_weight.png)
 
 ### Find the portfolio with the maximum Sharpe Ratio, also called the tangency portfolio
+The efficient portfolio weightings with the maximum Sharpe Ratio:
+| Asset | Weighting (%) |
+|-------|---------------|
+| SOL   | 97.4          |
+| BTC   | 2.46          |
+| ETH   | 0.191         |
 
-![max sharpe](https://github.com/vincent-l-j/project-1/blob/main/images/max_sharp_weight.png)
+![max_sharpe_ratio](images/max_sharp_weight.png)
 
 ### Given a target volatility of 0.85, find the portfolio with the maximum Sharpe Ratio
+The efficient portfolio weightings with a target volatility of 0.85 are:
+| Asset | Weighting (%) |
+|-------|---------------|
+| SOL   | 49            |
+| BTC   | 39.1          |
+| ETH   | 12            |
 
-![vol](https://github.com/vincent-l-j/project-1/blob/main/images/efficient_volatility_0.85.png)
+![volatility_0.85](images/efficient_volatility_0.85.png)
 
 ### Given an expected return of 1.5, find the portfolio with the minimum volatility
+The efficient portfolio weightings with an expected return of 1.5 are:
+| Asset | Weighting (%) |
+|-------|---------------|
+| BTC   | 58.4          |
+| SOL   | 36            |
+| ETH   | 5.64          |
 
-![expected return](https://github.com/vincent-l-j/project-1/blob/main/images/efficient_expected_return_1.5.png)
+![return_1.5](images/efficient_expected_return_1.5.png)
