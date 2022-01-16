@@ -51,7 +51,7 @@ The efficient frontier is the set of optimal portfolios that offer the highest e
 ![efficient_frontier](images/efficient_frontier.png)
 
 ### Find the portfolio with the minimum volatility
-The efficient portfolio weightings with the maximum Sharpe Ratio:
+The efficient portfolio weightings with the minimum volatility:
 | Asset | Weighting (%) |
 |-------|---------------|
 | BTC   | 95.2          |
