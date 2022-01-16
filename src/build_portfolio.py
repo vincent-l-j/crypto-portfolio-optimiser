@@ -95,7 +95,7 @@ def cb_build_portfolio():
                 left_index=True,
                 right_index=True,
                 how='outer'),
-            map(get_historical_data, list(asset_list) + ['BTC'])
+            map(get_historical_data, set(list(asset_list) + ['BTC']))
         )
     else:
         df_cached = st.session_state.df_cached
