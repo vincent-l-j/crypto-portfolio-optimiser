@@ -46,12 +46,13 @@ The following analysis was performed using a chosen portfolio of [`BTC`, `ETH`, 
 ![dis monte carlo](images/dis_monte_carlo.png)
 
 ### Calculate the efficient frontier
-The efficient frontier is the set of optimal portfolios that offer the highest expected return for a defined level of risk or the lowest risk for a given level of expected return. Portfolios that lie below the efficient frontier are sub-optimal because they do not provide enough return for the level of risk.
+The efficient frontier is the set of optimal portfolios that offer the highest expected return for a defined level of risk or the lowest risk for a given level of expected return.
+Portfolios that lie below the efficient frontier are sub-optimal because they do not provide enough return for the level of risk.
 
 ![efficient_frontier](images/efficient_frontier.png)
 
 ### Find the portfolio with the minimum volatility
-The efficient portfolio weightings with the maximum Sharpe Ratio:
+The efficient portfolio weightings with the minimum volatility:
 | Asset | Weighting (%) |
 |-------|---------------|
 | BTC   | 95.2          |
