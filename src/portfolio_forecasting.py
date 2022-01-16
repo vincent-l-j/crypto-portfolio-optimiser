@@ -26,7 +26,28 @@ def app():
         num_trading_days = 365*1
     )
 
-    MC_traditional_dist.calc_cumulative_return()
+    try:
+        old_mc_sim = st.session_state.MC_traditional_dist
+    except AttributeError:
+        old_mc_sim = None
+    # Check if the portfolio is different
+    is_portfolio_different = (
+        old_mc_sim is None
+        or any(
+            x != y
+            for x,y in
+            zip(
+                MC_traditional_dist.portfolio_data.columns.get_level_values(0).unique(),
+                old_mc_sim.portfolio_data.columns.get_level_values(0).unique(),
+            )
+        )
+        or any(x != y for x,y in zip(MC_traditional_dist.weights, old_mc_sim.weights))
+    )
+    # Only run the simulation when if the portfolio is new or different
+    if is_portfolio_different:
+        MC_traditional_dist.calc_cumulative_return()
+        st.session_state.MC_traditional_dist = MC_traditional_dist
+    MC_traditional_dist = st.session_state.MC_traditional_dist
 
     st.bokeh_chart(hv.render(mc_line_plot(MC_traditional_dist), backend='bokeh'))
     st.pyplot(mc_dist_plot(MC_traditional_dist))
