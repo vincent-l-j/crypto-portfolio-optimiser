@@ -7,6 +7,15 @@ import numpy as np
 def app():
     st.title('Portfolio Statistics')
 
+    try:
+        weightings = st.session_state.weightings
+        df_ohlcv = st.session_state.df_ohlcv
+    except AttributeError:
+        weightings = None
+    if not weightings:
+        st.write('Please build your portfolio first.')
+        return
+
     df_change = st.session_state.df_daily_returns
 
     v = list(st.session_state.weightings.values())

@@ -10,8 +10,11 @@ def app():
     st.title('Portfolio Forecasting')
 
     try:
+        weightings = st.session_state.weightings
         df_ohlcv = st.session_state.df_ohlcv
     except AttributeError:
+        weightings = None
+    if not weightings:
         st.write('Please build your portfolio first.')
         return
 
