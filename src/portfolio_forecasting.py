@@ -50,5 +50,5 @@ def investment_return (mc, initial_investment = 20000):
     ci_upper = round(traditional_tbl[9]*initial_investment,2)
 
     return (f"There is a 95% chance that an initial investment of ${initial_investment:,} in the portfolio"
-           f" over the next 12 months will end within a range of"
+           f" over the next 12 months will end within the range of"
            f" ${ci_lower:,} and ${ci_upper:,}")
