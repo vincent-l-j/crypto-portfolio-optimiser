@@ -30,6 +30,7 @@ def app():
         old_mc_sim = st.session_state.MC_traditional_dist
     except AttributeError:
         old_mc_sim = None
+    # Check if the portfolio is different
     is_portfolio_different = (
         old_mc_sim is None
         or any(
@@ -42,6 +43,7 @@ def app():
         )
         or any(x != y for x,y in zip(MC_traditional_dist.weights, old_mc_sim.weights))
     )
+    # Only run the simulation when if the portfolio is new or different
     if is_portfolio_different:
         MC_traditional_dist.calc_cumulative_return()
         st.session_state.MC_traditional_dist = MC_traditional_dist
