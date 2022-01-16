@@ -23,15 +23,27 @@ The following analysis was performed using a chosen portfolio of [`BTC`, `ETH`, 
 
 ### How has your portfolio performed in the past year?
 
+![daily returns](images/daily_returns_plt.png)
+
 ### How has your portfolio performed cumulatively in the past year?
+
+![cum_returns plot](images/cum_returns_plt.png)
 
 ### How strongly correlated is your portfolio to BTC?
 
+![corr plot](images/corr_plt.png)
+
 ### How volatile is your portfolio?
+
+![beta plot](images/bet_plt.png)
 
 ### How might your portfolio perform in one year?
 
+![montecarlo](images/monte_carlo.png)
+
 ### What is the most probable expected portfolio return in one year?
+
+![dis monte carlo](images/dis_monte_carlo.png)
 
 ### Calculate the efficient frontier
 The efficient frontier is the set of optimal portfolios that offer the highest expected return for a defined level of risk or the lowest risk for a given level of expected return. Portfolios that lie below the efficient frontier are sub-optimal because they do not provide enough return for the level of risk.
