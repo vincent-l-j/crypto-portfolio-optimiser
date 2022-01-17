@@ -23,17 +23,25 @@ The following analysis was performed using a chosen portfolio of [`BTC`, `ETH`, 
 
 ### How has your portfolio performed in the past year?
 
+This graph shows how all the assets have visually performed each day over the previous year. Visually this should give a trader an idea on volatility and therefore risk appetite for assets held in the portfolio build
+
 ![daily returns](images/daily_returns_plt.png)
 
 ### How has your portfolio performed cumulatively in the past year?
+
+Cumulative returns shows each asset's respective return over a period of 1 year, giving an idea on each assets overall returns
 
 ![cum_returns plot](images/cum_returns_plt.png)
 
 ### How strongly correlated is your portfolio to BTC?
 
+This rolling 30 day average of the portfolios correlation measured to the closing price of Bitcoin shows the strength of the direction that the portfolio moves relative to the movement in the price of bitcoin
+
 ![corr plot](images/corr_plt.png)
 
 ### How volatile is your portfolio?
+
+The rolling 30 day portfolio beta shows how volatile the portfolio is relative to the movement in the price of Bitcoin. If portfolio beta is above 1 it means that on average, the portfolio is more volatile than Bitcoin and if Beta is below 1, then it means the portfolio is less volatile.
 
 ![beta plot](images/bet_plt.png)
 
