@@ -22,22 +22,23 @@ This should include a heading for each question that was asked of your data, wit
 The following analysis was performed using a chosen portfolio of [`BTC`, `ETH`, `SOL`] with weightings of [60, 20, 20] respectively.
 
 ### How has your portfolio performed in the past year?
-This chart provides a graphical representation of daily returns for the selected cryptocurrencies.
+This graph shows how all the assets have visually performed each day over the previous year. Visually this should give a trader an idea on volatility and therefore risk appetite for assets held in the portfolio build
 
 ![daily returns](images/daily_returns_plt.png)
 
 ### How has your portfolio performed cumulatively in the past year?
-Cumulative returns are calculated by adding the daily returns together to provide a graphical represenation of the total return of each cryptocurrency in the portfolio, for the past 12 months. 
+Cumulative returns shows each asset's respective return over a period of 1 year, giving an idea on each assets overall returns.
 
 ![cum_returns plot](images/cum_returns_plt.png)
 
 ### How strongly correlated is your portfolio to BTC?
-Beta is a measure of an assets volatiity relative to the market. In this case, we have compared the volatility to Bitcoin. The correlation is expressed as a positive or negative number between -1 and 1. The value of the number indicates the strength of the relationship: r = 0 means there is no correlation. r = 1 means there is perfect positive correlation. r = -1 means there is a perfect negative correlation. This charts plots the correltion of the selected portfolio to Bitcoin over the past 12 months. 
+This rolling 30 day average of the portfolios correlation measured to the closing price of Bitcoin shows the strength of the direction that the portfolio moves relative to the movement in the price of bitcoin
+ 
 
 ![corr plot](images/corr_plt.png)
 
 ### How volatile is your portfolio?
-The Beta plot shows the correlation of the portfolio to Bitcoin using a 30 day rolling average. 
+The rolling 30 day portfolio beta shows how volatile the portfolio is relative to the movement in the price of Bitcoin. If portfolio beta is above 1 it means that on average, the portfolio is more volatile than Bitcoin and if Beta is below 1, then it means the portfolio is less volatile. 
 
 ![beta plot](images/bet_plt.png)
 
