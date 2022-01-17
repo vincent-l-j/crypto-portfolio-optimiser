@@ -22,27 +22,33 @@ This should include a heading for each question that was asked of your data, wit
 The following analysis was performed using a chosen portfolio of [`BTC`, `ETH`, `SOL`] with weightings of [60, 20, 20] respectively.
 
 ### How has your portfolio performed in the past year?
+This chart provides a graphical representation of daily returns for the selected cryptocurrencies.
 
 ![daily returns](images/daily_returns_plt.png)
 
 ### How has your portfolio performed cumulatively in the past year?
+Cumulative returns are calculated by adding the daily returns together to provide a graphical represenation of the total return of each cryptocurrency in the portfolio, for the past 12 months. 
 
 ![cum_returns plot](images/cum_returns_plt.png)
 
 ### How strongly correlated is your portfolio to BTC?
+Beta is a measure of an assets volatiity relative to the market. In this case, we have compared the volatility to Bitcoin. The correlation is expressed as a positive or negative number between -1 and 1. The value of the number indicates the strength of the relationship: r = 0 means there is no correlation. r = 1 means there is perfect positive correlation. r = -1 means there is a perfect negative correlation. This charts plots the correltion of the selected portfolio to Bitcoin over the past 12 months. 
 
 ![corr plot](images/corr_plt.png)
 
 ### How volatile is your portfolio?
+The Beta plot shows the correlation of the portfolio to Bitcoin using a 30 day rolling average. 
 
 ![beta plot](images/bet_plt.png)
 
 ### How might your portfolio perform in one year?
+A Monte Carlo Simulation constructs 100 probability distributions of the possible outcomes of the portfolio, based on the prior 12 months of historical data.
 
 ![montecarlo](images/monte_carlo.png)
 
 ### What is the most probable expected portfolio return in one year?
-
+The probability plot will provide an indication of the most likely outcome of the selected portfolio within a 95% confidence interval, which is 1 standard deviation. 
+ 
 ![dis monte carlo](images/dis_monte_carlo.png)
 
 ### Calculate the efficient frontier
