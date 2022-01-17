@@ -17,8 +17,6 @@ streamlit run app.py
 
 ## Summary of Findings
 
-This should include a heading for each question that was asked of your data, with a short description of what you found and any relevant plots under each heading.
-
 The following analysis was performed using a chosen portfolio of [`BTC`, `ETH`, `SOL`] with weightings of [60, 20, 20] respectively.
 
 ### How has your portfolio performed in the past year?
