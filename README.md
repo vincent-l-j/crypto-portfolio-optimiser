@@ -1,5 +1,7 @@
 # Crypto Portfolio Optimiser
 
+See the app live [here](https://share.streamlit.io/vincent-l-j/crypto-portfolio-optimiser/main/app.py)
+
 ## Requirements
 - [Anaconda](https://www.anaconda.com/products/individual)
 
