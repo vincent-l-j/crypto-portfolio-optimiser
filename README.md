@@ -1,4 +1,4 @@
-# project-1
+# Crypto Portfolio Optimiser
 
 ## Requirements
 - [Anaconda](https://www.anaconda.com/products/individual)
